@@ -1,0 +1,10 @@
+public class Main{
+	public static void main(String[] args){
+		Rongyao[] rongyaos = new Rongyao[6];
+        Rongyao rongyao1 = new Rongyao("i5","»ÝÆÕ","4000");
+        rongyaos[0] = rongyao1;
+	for(int i=0;i<rongyaos.length;i++){
+		rongyaos[i].say();
+	}
+	}
+}

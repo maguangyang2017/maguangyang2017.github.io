@@ -1,0 +1,118 @@
+import java.util.Scanner;
+public class Main{
+	static Scanner sc=new Scanner(System.in);
+	static Shop[] n=new Shop[100];
+	static int i=0;
+	public static void main(String[] arges){
+		Shuchu();
+	}
+	public static void Shuchu(){
+		System.out.println("==欢迎进入超市管理系统==");
+		System.out.println("=====请选择以下选项=====");
+		System.out.println("=========1.进货=========");
+		System.out.println("=========2.出货=========");
+		System.out.println("=======3.查询库存=======");
+		System.out.println("=========4.退出=========");
+		Scanner sc = new Scanner(System.in);
+		int flag = sc.nextInt();
+		switch(flag){
+			case 1: addShop();break;
+			case 2: outShop();break;
+			case 3: selectShop();break;
+			case 4: System.exit(0);break;
+			default: Shuchu();
+		}
+	}
+	public static void addShop (){
+		boolean m=true;
+		while(m){
+			System.out.println("请输入商品名称");
+			String name=sc.next();
+			System.out.println("请输入商品进价");
+			double inprice=sc.nextDouble();
+			System.out.println("请输入商品售价");
+			double outprice=sc.nextDouble();
+			System.out.println("请输入商品数量");
+			int number=sc.nextInt();
+			Shop b=new Shop(name,inprice,outprice,number);
+			n[i]=b;
+			i++;
+			System.out.println("录入成功,是否继续输入");
+			System.out.println("1.是");
+			System.out.println("2.否");
+			int j=sc.nextInt();
+			if(j==1){
+				m=true;
+			}else if(j==2){
+				m=false;
+			}else{
+				m=false;
+				Shuchu();
+			}
+		}
+		Shuchu();
+	}
+	public static void outShop (){
+		System.out.println("请输入发货商品名称");
+		String s = sc.next();
+		System.out.println("请输入发货商品数量");
+		int d = sc.nextInt();
+		for(i=0;i<n.length;i++){
+			if((n[i]!=null)&&(s.equals(n[i].name))){
+				n[i].number = n[i].number-d;
+				System.out.println("剩余商品数量"+n[i].number);
+				if(n[i].number<0){
+					System.out.println("商品已售光");
+					Shuchu();
+				}
+			}
+			
+		}
+		System.out.println("是否继续发货");
+		System.out.println("1.继续发货");
+		System.out.println("2.返回菜单");
+		int v = sc.nextInt();
+		if(v==1){
+			outShop();
+		}else if(v!=1){
+			Shuchu();
+		}
+	}
+	public static void selectShop(){
+		System.out.println("1.查询所有商品信息");
+		System.out.println("2.查询单个商品信息");
+		int k = sc.nextInt();
+		if(k==1){
+			for(i=0;i<n.length;i++){
+				if(n[i]!=null){
+					n[i].say();
+					
+				}
+			}
+			Shuchu();
+		}else if(k==2){
+			System.out.println("请输入商品名称");
+			String z=sc.next();
+			for(i=0;i<n.length;i++){
+				if((n[i]!=null)&&(z.equals(n[i].name))){
+					n[i].say();
+				}
+			}
+			System.out.println("查无信息是否继续查询");
+			System.out.println("1:继续查询");
+			System.out.println("2:返回菜单");
+			int v=sc.nextInt();
+			if(v==1){
+				selectShop();
+			}else if(v!=1){
+				Shuchu();
+			}
+		}else{
+			selectShop();
+		}
+	}
+
+
+
+
+}

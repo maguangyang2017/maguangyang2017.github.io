@@ -1,0 +1,15 @@
+public class Shop{
+	String  name;//商品名字
+	double inprice;//商品进价
+	double outprice;//商品售价
+	int number;//商品数量
+	public  Shop(String name,double inprice,double outprice,int number){
+		this.name = name;
+		this.inprice = inprice;
+		this.outprice = outprice;
+		this.number = number;
+	}
+	public void say(){
+		System.out.println("商品名称——"+name+",商品进价——"+inprice+",商品售价——"+outprice+"商品数量——"+number);
+	}
+}

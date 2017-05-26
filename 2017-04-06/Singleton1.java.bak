@@ -1,0 +1,13 @@
+class Singleton1{
+1
+	public static void says(){
+		System.out.println("¿¡∫∫");
+	}
+	public static Singleton1 getInstance(){
+		if(instance==null){
+			instance = new Singleton1();
+		}
+		return instance;
+	}                                            
+	private Singleton1(){}
+}
