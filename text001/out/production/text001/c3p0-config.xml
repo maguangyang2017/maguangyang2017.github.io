@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<c3p0-config>
+	<default-config>
+		<!-- 指定连接数据库的URL-->
+		<property name="jdbcUrl">jdbc:mysql://localhost:3306/zqw</property>
+		<!-- 指定连接数据库的驱动-->
+		<property name="driverClass">com.mysql.jdbc.Driver</property>
+		<!-- 指定连接数据库的用户名-->
+		<property name="user">root</property>
+		<!-- 指定连接数据库的密码-->
+		<property name="password">123</property>
+		<!-- 当连接池中的连接耗尽的时候c3p0一次同时获取的连接数. Default:3-->
+		<property name="acquireIncrement">3</property>
+		<!--当池初始化时可以建立的物理连接的数目-->
+		<property name="initialPoolSize">10</property>
+		<!--池可以包含的物理连接的最小数目-->
+		<property name="minPoolSize">2</property>
+		<!--池可以包含的物理连接的最大数目-->
+		<property name="maxPoolSize">10</property>
+	</default-config>
+</c3p0-config>
